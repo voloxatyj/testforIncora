@@ -1,5 +1,6 @@
 const express = require('express')
 const app = express()
+const cors = require('cors')
 const dotenv = require('dotenv')
 const connectDB = require('./config/db')
 const path = require('path')
@@ -12,6 +13,7 @@ dotenv.config({ path: './config/config.env' })
 connectDB()
 
 app.use(bodyParser.json())
+app.use(cors())
 
 // Logging
 if (process.env.NODE_ENV === 'development') {
